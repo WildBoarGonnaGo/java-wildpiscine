@@ -1,7 +1,8 @@
 package edu.school21.chat.repositories;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
-import edu.school21.chat.models.Message;
+import edu.school21.chat.models.*;
+
 import java.util.Optional;
 import java.sql.*;
 
@@ -27,8 +28,9 @@ public class MessagesRepositoryJdbcImpl implements MessagesRepository {
 	public Optional<Message> findById(Long id){
 		Long				idTmp = (long)0;
 		ResultSet			evilQuery;
-		Message				resObj;
 		Optional<Message>	result = Optional.empty();
+		Users 				author;
+		Chatroom			room;
 
 		if (id < 0)
 			return result;
@@ -40,18 +42,22 @@ public class MessagesRepositoryJdbcImpl implements MessagesRepository {
 				System.err.println("Id number exceeds the total amount of messages.");
 				return Optional.empty();
 			}
-			String	queryStr = "SELECT * FROM message WHERE id=" + id.toString() + ';';
+			String	queryStr = "SELECT * FROM message RIGHT JOIN users " +
+				"ON message.author = users.idusers RIGHT JOIN chatroom ON " +
+				"message.room = chatroom.idchatroom WHERE message.idmessage = " + id.toString() + ';';
 			evilQuery = queryWarlock.executeQuery(queryStr);
-			if (evilQuery.next())
-				result = Optional.of(new Message(evilQuery.getLong("id"),
-					evilQuery.getLong("author"),
-					evilQuery.getLong("room"),
-					evilQuery.getString("text"),
+			if (evilQuery.next()) {
+				author = new Users(evilQuery.getLong("idusers"),
+					evilQuery.getString("login"),
+					evilQuery.getString("password"), null, null);
+				room = new Chatroom(evilQuery.getLong("idchatroom"),
+					evilQuery.getString("name"),
+					author, null);
+				result = Optional.of(new Message(evilQuery.getLong("idmessage"),
+					author, room, evilQuery.getString("text"),
 					evilQuery.getTimestamp("date_time")));
+			}
 			evilQuery.close();
-			queryWarlock.close();
-			dbConn.close();
-			wildHikariDS.close();
 			return result;
 		} catch (SQLException exc) {
 			System.err.println("SQL query can't be executed.");

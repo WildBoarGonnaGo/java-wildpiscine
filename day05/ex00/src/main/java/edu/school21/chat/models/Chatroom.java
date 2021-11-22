@@ -5,11 +5,11 @@ import java.util.Objects;
 public class Chatroom {
 	private	Long			id;
 	private	String			name;
-	private	Long			owner;
+	private	Users			owner;
 	private List<Message>	messages;
 
 	public Chatroom() {}
-	public Chatroom(Long id, String name, Long owner, List<Message> messages) {
+	public Chatroom(Long id, String name, Users owner, List<Message> messages) {
 		this.id = id;
 		this.name = name;
 		this.owner = owner;
@@ -17,12 +17,12 @@ public class Chatroom {
 	}
 	public Long				getId() { return id; }
 	public String			getName() { return name; }
-	public Long				getOwner() { return owner; }
+	public Users			getOwner() { return owner; }
 	public List<Message>	getMessages() { return messages; }
 
 	public void		setId(Long id) { this.id = id; }
 	public void		setName(String name) { this.name = name; }
-	public void		setOwner(Long owner) { this.owner = owner; }
+	public void		setOwner(Users owner) { this.owner = owner; }
 	public void		setMessages(List<Message> messages) { this.messages = messages; }
 
 	@Override
@@ -42,11 +42,11 @@ public class Chatroom {
 
 	@Override
 	public String toString() {
-		return "Chatroom{" +
-			"id=" + id +
-			", name='" + name + '\'' +
-			", owner=" + owner +
-			", messages=" + messages +
-			'}';
+		return "{ " +
+			"id = " + id +
+			",name = '" + name + '\'' +
+			", owner = " + owner.toString() +
+			", messages = " + messages +
+			" }";
 	}
 }

@@ -52,11 +52,11 @@ public class Users {
 	@Override
 	public String toString() {
 		return "{ " +
-			"id=" + id +
-			", login='" + login + '\'' +
-			", password='" + password + '\'' +
-			", createdRooms=" + createdRooms +
-			", socializedChatRooms=" + socializedChatRooms +
+			" id = " + id +
+			", login = '" + login + '\'' +
+			", password = '" + password + '\'' +
+			", createdRooms = " + createdRooms +
+			", socializedChatRooms = " + socializedChatRooms +
 			" }";
 	}
 }
