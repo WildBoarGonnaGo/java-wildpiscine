@@ -1,6 +1,8 @@
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
+import javax.swing.border.Border;
+import javax.swing.BorderFactory;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.Font;
@@ -12,6 +14,8 @@ public class JavaFrame {
         JLabel label = new JLabel();
         //set a text of label
         label.setText("Bro, do you even code?");
+        //Let's create a border
+        Border border = BorderFactory.createLineBorder(Color.green);
 
         //set image origin
         ImageIcon image = new ImageIcon("/Users/wildboargonnago/Pictures/tzeentch_icon.png");
@@ -28,6 +32,18 @@ public class JavaFrame {
         label.setForeground(new Color(0x7b32f5));
         //set Font of our text
         label.setFont(new Font("Krungthep", Font.PLAIN, 20));
+        //set gap of text to image
+        label.setIconTextGap(15);
+        //set background color
+        label.setBackground(Color.black); //set background color
+        label.setOpaque(true); //display background color
+        //Let's set Border for a label
+        label.setBorder(border);
+        //Now lets do center allignment
+        label.setVerticalAlignment(JLabel.CENTER); //set vertical position icon + text within the label
+        label.setHorizontalAlignment(JLabel.CENTER); //set horizontal position icon + text within the label
+        // set bounds of the label
+        label.setBounds(0, 0, 350, 350);
 
         JFrame frame = new JFrame();
         frame.setSize(500, 500);
