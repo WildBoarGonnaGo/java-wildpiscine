@@ -20,7 +20,7 @@ public class JavaFrame {
         //set image origin
         ImageIcon image = new ImageIcon("/Users/wildboargonnago/Pictures/tzeentch_icon.png");
         //Let's rescale it
-        Image cp = image.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+        Image cp = image.getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH);
         image = null;
         image = new ImageIcon(cp);
         label.setIcon(image);
@@ -31,7 +31,7 @@ public class JavaFrame {
         //Set Foreground color of our text
         label.setForeground(new Color(0x7b32f5));
         //set Font of our text
-        label.setFont(new Font("Krungthep", Font.PLAIN, 20));
+        label.setFont(new Font("Krungthep", Font.PLAIN, 50));
         //set gap of text to image
         label.setIconTextGap(15);
         //set background color
@@ -43,12 +43,16 @@ public class JavaFrame {
         label.setVerticalAlignment(JLabel.CENTER); //set vertical position icon + text within the label
         label.setHorizontalAlignment(JLabel.CENTER); //set horizontal position icon + text within the label
         // set bounds of the label
-        label.setBounds(0, 0, 350, 350);
+        //label.setBounds(100, 100, 250, 250);
 
         JFrame frame = new JFrame();
-        frame.setSize(500, 500);
+        //frame.setSize(500, 500);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(label);
+        //frame.setLayout(null);
         frame.setVisible(true);
+        /*pack method fits frame to all it's elements
+        * pack method is using after you added all desirable elements*/
+        frame.pack();
     }
 }
