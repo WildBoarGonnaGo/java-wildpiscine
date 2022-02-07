@@ -15,19 +15,19 @@ public class MyFrameForButton extends JFrame implements ActionListener {
 	private final JButton slaanesh;
 
 	MyFrameForButton() {
-		ImageIcon khorneIcon = new ImageIcon("/home/zavelskiymm/marks_of_chaos/Khorne_icon.png");
+		ImageIcon khorneIcon = new ImageIcon("/Users/wildboargonnago/java-wildpiscine/Swing_tutorial/marks_of_chaos/Khorne_icon.png");
 		Image tmp = khorneIcon.getImage().getScaledInstance(80, 80, Image.SCALE_SMOOTH);
 		khorneIcon = new ImageIcon(tmp);
 
-		ImageIcon nurgleIcon = new ImageIcon("/home/zavelskiymm/marks_of_chaos/nurgle_icon.png");
+		ImageIcon nurgleIcon = new ImageIcon("/Users/wildboargonnago/java-wildpiscine/Swing_tutorial/marks_of_chaos/nurgle_icon.jpeg");
 		tmp = nurgleIcon.getImage().getScaledInstance(80, 80, Image.SCALE_SMOOTH);
 		nurgleIcon = new ImageIcon(tmp);
 
-		ImageIcon TzeentchIcon = new ImageIcon(("/home/zavelskiymm/marks_of_chaos/Tzeentch.png"));
+		ImageIcon TzeentchIcon = new ImageIcon(("/Users/wildboargonnago/java-wildpiscine/Swing_tutorial/marks_of_chaos/Tzeentch.png"));
 		tmp = TzeentchIcon.getImage().getScaledInstance(80, 80, Image.SCALE_SMOOTH);
 		TzeentchIcon = new ImageIcon(tmp);
 
-		ImageIcon SlaaneshIcon = new ImageIcon("/home/zavelskiymm/marks_of_chaos/Slaanesh_icon.png");
+		ImageIcon SlaaneshIcon = new ImageIcon("/Users/wildboargonnago/java-wildpiscine/Swing_tutorial/marks_of_chaos/Slaanesh_icon.png");
 		tmp = SlaaneshIcon.getImage().getScaledInstance(80, 80, Image.SCALE_SMOOTH);
 		SlaaneshIcon = new ImageIcon(tmp);
 
